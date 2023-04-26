@@ -12,7 +12,7 @@
         "description": "Blinky NUCLEO STM32G431RB board demo with AC6",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm0"
+            "CORTEX_TYPE": "cm4f"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {
@@ -30,7 +30,7 @@
         "description": "Blinky NUCLEO STM32G431RB board demo with arm gcc",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm0"
+            "CORTEX_TYPE": "cm4f"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {
@@ -48,7 +48,7 @@
         "description": "Blinky NUCLEO STM32G431RB board demo with llvm clang",
         "generator": "Ninja",
         "environment": {
-            "CORTEX_TYPE": "cm0"
+            "CORTEX_TYPE": "cm4f"
         },
         "binaryDir": "${sourceDir}/build/${presetName}",
         "cacheVariables": {

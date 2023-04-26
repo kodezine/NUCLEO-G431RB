@@ -17,7 +17,7 @@ cmake_minimum_required(VERSION 3.25)
     target_sources(${PROJECT_NAME}
         PRIVATE
             ${CMAKE_CURRENT_SOURCE_DIR}/demo.c
-            ${CMAKE_SOURCE_DIR}/cubemx/Core/Src/stm32f0xx_it.c
+            ${CMAKE_SOURCE_DIR}/cubemx/Core/Src/stm32g4xx_it.c
         # Expose the startup file
         PUBLIC
             ${${PROJECT_NAME}_STARTUP_FILE}

@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include "stm32f0xx.h"
+#include "stm32g4xx.h"
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6100100)
     #include "__vectors_ac6.h"
 #elif defined(__GNUC__)
@@ -59,54 +59,122 @@ __NO_RETURN void Default_Handler(void);
 /*---------------------------------------------------------------------------
   Exception / Interrupt Handler
  *---------------------------------------------------------------------------*/
-/* Exceptions */
-void NMI_Handler(void) __attribute__((weak, alias("Default_Handler")));
-void HardFault_Handler(void) __attribute__((weak));
-// void MemManage_Handler                  (void) __attribute__ ((weak, alias("Default_Handler")));
-// void BusFault_Handler                   (void) __attribute__ ((weak, alias("Default_Handler")));
-// void UsageFault_Handler                 (void) __attribute__ ((weak, alias("Default_Handler")));
-// void SecureFault_Handler                (void) __attribute__ ((weak, alias("Default_Handler")));
-void SVC_Handler(void) __attribute__((weak, alias("Default_Handler")));
-// void DebugMon_Handler                   (void) __attribute__ ((weak, alias("Default_Handler")));
-void PendSV_Handler(void) __attribute__((weak, alias("Default_Handler")));
-void SysTick_Handler(void) __attribute__((weak, alias("Default_Handler")));
-
-/* Add your device specific interrupt handler */
-/*---------------------------------------------------------------------------
-  ISR
- *---------------------------------------------------------------------------*/
-void WWDG_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void PVD_VDDIO2_IRQHandler            (void) __attribute__((weak, alias("Default_Handler")));
-void RTC_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
-void FLASH_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
-void RCC_CRS_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
-void EXTI0_1_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
-void EXTI2_3_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
-void EXTI4_15_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
-void TSC_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
-void DMA1_Channel1_IRQHandler         (void) __attribute__((weak, alias("Default_Handler")));
-void DMA1_Channel2_3_IRQHandler       (void) __attribute__((weak, alias("Default_Handler")));
-void DMA1_Channel4_5_6_7_IRQHandler   (void) __attribute__((weak, alias("Default_Handler")));
-void ADC1_COMP_IRQHandler             (void) __attribute__((weak, alias("Default_Handler")));
-void TIM1_BRK_UP_TRG_COM_IRQHandler   (void) __attribute__((weak, alias("Default_Handler")));
-void TIM1_CC_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
-void TIM2_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void TIM3_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void TIM6_DAC_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
-void TIM7_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void TIM14_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
-void TIM15_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
-void TIM16_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
-void TIM17_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
-void I2C1_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void I2C2_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void SPI1_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void SPI2_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
-void USART1_IRQHandler                (void) __attribute__((weak, alias("Default_Handler")));
-void USART2_IRQHandler                (void) __attribute__((weak, alias("Default_Handler")));
-void USART3_4_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
-void CEC_CAN_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
-void USB_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void NMI_Handler                        (void) __attribute__((weak, alias("Default_Handler")));
+void HardFault_Handler                  (void) __attribute__((weak));
+void MemManage_Handler                  (void) __attribute__((weak, alias("Default_Handler")));
+void BusFault_Handler                   (void) __attribute__((weak, alias("Default_Handler")));
+void UsageFault_Handler                 (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+void SVC_Handler                        (void) __attribute__((weak, alias("Default_Handler")));
+void DebugMon_Handler                   (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+void PendSV_Handler                     (void) __attribute__((weak, alias("Default_Handler")));
+void SysTick_Handler                    (void) __attribute__((weak, alias("Default_Handler")));
+void WWDG_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void PVD_PVM_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void RTC_TAMP_LSECSS_IRQHandler         (void) __attribute__((weak, alias("Default_Handler")));
+void RTC_WKUP_IRQHandler                (void) __attribute__((weak, alias("Default_Handler")));
+void FLASH_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void RCC_IRQHandler                     (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI0_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI1_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI2_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI3_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void EXTIr_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel1_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel2_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel3_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel4_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel5_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA1_Channel6_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+void ADC1_2_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void USB_HP_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void USB_LP_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void FDCAN1_IT0_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
+void FDCAN1_IT1_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI9_5_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void TIM1_BRK_TIM15_IRQHandler          (void) __attribute__((weak, alias("Default_Handler")));
+void TIM1_UP_TIM16_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void TIM1_TRG_COM_TIM17_IRQHandler      (void) __attribute__((weak, alias("Default_Handler")));
+void TIM1_CC_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void TIM2_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void TIM3_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void TIM4_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void I2C1_EV_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void I2C1_ER_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void I2C2_EV_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void I2C2_ER_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void SPI1_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void SPI2_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void USART1_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void USART2_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void USART3_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void EXTI15_10_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
+void RTC_Alarm_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
+void USBWakeUp_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
+void TIM8_BRK_IRQHandler                (void) __attribute__((weak, alias("Default_Handler")));
+void TIM8_UP_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void TIM8_TRG_COM_IRQHandler            (void) __attribute__((weak, alias("Default_Handler")));
+void TIM8_CC_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+void LPTIM1_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+void SPI3_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void UART4_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+void TIM6_DAC_IRQHandler                (void) __attribute__((weak, alias("Default_Handler")));
+void TIM7_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+void DMA2_Channel1_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA2_Channel2_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA2_Channel3_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA2_Channel4_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+void DMA2_Channel5_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+void UCPD1_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+void COMP1_2_3_IRQHandler               (void) __attribute__((weak, alias("Default_Handler")));
+void COMP4_IRQHandler                   (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+void CRS_IRQHandler                     (void) __attribute__((weak, alias("Default_Handler")));
+void SAI1_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+void FPU_IRQHandler                     (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+/*   0                                                                                       */
+void RNG_IRQHandler                     (void) __attribute__((weak, alias("Default_Handler")));
+void LPUART1_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void I2C3_EV_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void I2C3_ER_IRQHandler                 (void) __attribute__((weak, alias("Default_Handler")));
+void DMAMUX_OVR_IRQHandler              (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+void DMA2_Channel6_IRQHandler           (void) __attribute__((weak, alias("Default_Handler")));
+/*   0                                                                                       */
+/*   0                                                                                       */
+void CORDIC_IRQHandler                  (void) __attribute__((weak, alias("Default_Handler")));
+void FMAC_IRQHandler                    (void) __attribute__((weak, alias("Default_Handler")));
 /*----------------------------------------------------------------------------
   Exception / Interrupt Vector table
  *----------------------------------------------------------------------------*/
@@ -117,74 +185,126 @@ void USB_IRQHandler                   (void) __attribute__((weak, alias("Default
 #endif
 
 /* ToDo: Add Cortex exception vectors according the used Cortex-Core */
-extern const VECTOR_TABLE_Type __VECTOR_TABLE[64];
-const VECTOR_TABLE_Type __VECTOR_TABLE[64] __VECTOR_TABLE_ATTRIBUTE = {
-    (VECTOR_TABLE_Type)(&__INITIAL_SP),                     /*     Initial Stack Pointer */
-    (VECTOR_TABLE_Type)&Reset_Handler,                      /*     Reset Handler */
-    (VECTOR_TABLE_Type)&NMI_Handler,                        /* -14 NMI Handler */
-    (VECTOR_TABLE_Type)&HardFault_Handler,                  /* -13 Hard Fault Handler */
-    (VECTOR_TABLE_Type)0,                                   /* -12 MPU Fault Handler */
-    (VECTOR_TABLE_Type)0,                                   /* -11 Bus Fault Handler */
-    (VECTOR_TABLE_Type)0,                                   /* -10 Usage Fault Handler */
-    (VECTOR_TABLE_Type)0,                                   /*  -9 Secure Fault Handler */
-    (VECTOR_TABLE_Type)0,                                   /*     Reserved */
-    (VECTOR_TABLE_Type)0,                                   /*     Reserved */
-    (VECTOR_TABLE_Type)0,                                   /*     Reserved */
-    (VECTOR_TABLE_Type)&SVC_Handler,                        /*  -5 SVCall Handler */
-    (VECTOR_TABLE_Type)0,                                   /*  -4 Debug Monitor Handler */
-    (VECTOR_TABLE_Type)0,                                   /*     Reserved */
-    (VECTOR_TABLE_Type)&PendSV_Handler,                     /*  -2 PendSV Handler */
-    (VECTOR_TABLE_Type)&SysTick_Handler,                    /*  -1 SysTick Handler */
-    (VECTOR_TABLE_Type)&WWDG_IRQHandler,                    /* Window WatchDog              */
-    (VECTOR_TABLE_Type)&PVD_VDDIO2_IRQHandler,              /* PVD and VDDIO2 through EXTI Line detect */
-    (VECTOR_TABLE_Type)&RTC_IRQHandler,                     /* RTC through the EXTI line    */
-    (VECTOR_TABLE_Type)&FLASH_IRQHandler,                   /* FLASH                        */
-    (VECTOR_TABLE_Type)&RCC_CRS_IRQHandler,                 /* RCC and CRS                  */
-    (VECTOR_TABLE_Type)&EXTI0_1_IRQHandler,                 /* EXTI Line 0 and 1            */
-    (VECTOR_TABLE_Type)&EXTI2_3_IRQHandler,                 /* EXTI Line 2 and 3            */
-    (VECTOR_TABLE_Type)&EXTI4_15_IRQHandler,                /* EXTI Line 4 to 15            */
-    (VECTOR_TABLE_Type)&TSC_IRQHandler,                     /* TSC                          */
-    (VECTOR_TABLE_Type)&DMA1_Channel1_IRQHandler,           /* DMA1 Channel 1               */
-    (VECTOR_TABLE_Type)&DMA1_Channel2_3_IRQHandler,         /* DMA1 Channel 2 and Channel 3 */
-    (VECTOR_TABLE_Type)&DMA1_Channel4_5_6_7_IRQHandler,     /* DMA1 Channel 4, Channel 5, Channel 6 and Channel 7*/
-    (VECTOR_TABLE_Type)&ADC1_COMP_IRQHandler,               /* ADC1, COMP1 and COMP2         */
-    (VECTOR_TABLE_Type)&TIM1_BRK_UP_TRG_COM_IRQHandler,     /* TIM1 Break, Update, Trigger and Commutation */
-    (VECTOR_TABLE_Type)&TIM1_CC_IRQHandler,                 /* TIM1 Capture Compare         */
-    (VECTOR_TABLE_Type)&TIM2_IRQHandler,                    /* TIM2                         */
-    (VECTOR_TABLE_Type)&TIM3_IRQHandler,                    /* TIM3                         */
-    (VECTOR_TABLE_Type)&TIM6_DAC_IRQHandler,                /* TIM6 and DAC                 */
-    (VECTOR_TABLE_Type)&TIM7_IRQHandler,                    /* TIM7                         */
-    (VECTOR_TABLE_Type)&TIM14_IRQHandler,                   /* TIM14                        */
-    (VECTOR_TABLE_Type)&TIM15_IRQHandler,                   /* TIM15                        */
-    (VECTOR_TABLE_Type)&TIM16_IRQHandler,                   /* TIM16                        */
-    (VECTOR_TABLE_Type)&TIM17_IRQHandler,                   /* TIM17                        */
-    (VECTOR_TABLE_Type)&I2C1_IRQHandler,                    /* I2C1                         */
-    (VECTOR_TABLE_Type)&I2C2_IRQHandler,                    /* I2C2                         */
-    (VECTOR_TABLE_Type)&SPI1_IRQHandler,                    /* SPI1                         */
-    (VECTOR_TABLE_Type)&SPI2_IRQHandler,                    /* SPI2                         */
-    (VECTOR_TABLE_Type)&USART1_IRQHandler,                  /* USART1                       */
-    (VECTOR_TABLE_Type)&USART2_IRQHandler,                  /* USART2                       */
-    (VECTOR_TABLE_Type)&USART3_4_IRQHandler,                /* USART3 and USART4            */
-    (VECTOR_TABLE_Type)&CEC_CAN_IRQHandler,                 /* CEC and CAN                  */
-    (VECTOR_TABLE_Type)&USB_IRQHandler,                     /* USB                          */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0,                                   /* Reserved                     */
-    (VECTOR_TABLE_Type)0                                    /* Reserved                     */
+extern const VECTOR_TABLE_Type __VECTOR_TABLE[256];
+const VECTOR_TABLE_Type __VECTOR_TABLE[256] __VECTOR_TABLE_ATTRIBUTE = {
+    (VECTOR_TABLE_Type)(&__INITIAL_SP),                         /*     Initial Stack Pointer */
+    (VECTOR_TABLE_Type)&NMI_Handler                                                          ,
+    (VECTOR_TABLE_Type)&HardFault_Handler                                                    ,
+    (VECTOR_TABLE_Type)&MemManage_Handler                                                    ,
+    (VECTOR_TABLE_Type)&BusFault_Handler                                                     ,
+    (VECTOR_TABLE_Type)&UsageFault_Handler                                                   ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&SVC_Handler                                                          ,
+    (VECTOR_TABLE_Type)&DebugMon_Handler                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&PendSV_Handler                                                       ,
+    (VECTOR_TABLE_Type)&SysTick_Handler                                                      ,
+    (VECTOR_TABLE_Type)&WWDG_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&PVD_PVM_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&RTC_TAMP_LSECSS_IRQHandler                                           ,
+    (VECTOR_TABLE_Type)&RTC_WKUP_IRQHandler                                                  ,
+    (VECTOR_TABLE_Type)&FLASH_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&RCC_IRQHandler                                                       ,
+    (VECTOR_TABLE_Type)&EXTI0_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&EXTI1_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&EXTI2_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&EXTI3_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&EXTIr_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&DMA1_Channel1_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA1_Channel2_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA1_Channel3_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA1_Channel4_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA1_Channel5_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA1_Channel6_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&ADC1_2_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&USB_HP_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&USB_LP_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&FDCAN1_IT0_IRQHandler                                                ,
+    (VECTOR_TABLE_Type)&FDCAN1_IT1_IRQHandler                                                ,
+    (VECTOR_TABLE_Type)&EXTI9_5_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&TIM1_BRK_TIM15_IRQHandler                                            ,
+    (VECTOR_TABLE_Type)&TIM1_UP_TIM16_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&TIM1_TRG_COM_TIM17_IRQHandler                                        ,
+    (VECTOR_TABLE_Type)&TIM1_CC_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&TIM2_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&TIM3_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&TIM4_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&I2C1_EV_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&I2C1_ER_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&I2C2_EV_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&I2C2_ER_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&SPI1_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&SPI2_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&USART1_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&USART2_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&USART3_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&EXTI15_10_IRQHandler                                                 ,
+    (VECTOR_TABLE_Type)&RTC_Alarm_IRQHandler                                                 ,
+    (VECTOR_TABLE_Type)&USBWakeUp_IRQHandler                                                 ,
+    (VECTOR_TABLE_Type)&TIM8_BRK_IRQHandler                                                  ,
+    (VECTOR_TABLE_Type)&TIM8_UP_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&TIM8_TRG_COM_IRQHandler                                              ,
+    (VECTOR_TABLE_Type)&TIM8_CC_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&LPTIM1_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&SPI3_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&UART4_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&TIM6_DAC_IRQHandler                                                  ,
+    (VECTOR_TABLE_Type)&TIM7_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)&DMA2_Channel1_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA2_Channel2_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA2_Channel3_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA2_Channel4_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)&DMA2_Channel5_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&UCPD1_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)&COMP1_2_3_IRQHandler                                                 ,
+    (VECTOR_TABLE_Type)&COMP4_IRQHandler                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&CRS_IRQHandler                                                       ,
+    (VECTOR_TABLE_Type)&SAI1_IRQHandler                                                      ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&FPU_IRQHandler                                                       ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&RNG_IRQHandler                                                       ,
+    (VECTOR_TABLE_Type)&LPUART1_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&I2C3_EV_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&I2C3_ER_IRQHandler                                                   ,
+    (VECTOR_TABLE_Type)&DMAMUX_OVR_IRQHandler                                                ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&DMA2_Channel6_IRQHandler                                             ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)0                                                                     ,
+    (VECTOR_TABLE_Type)&CORDIC_IRQHandler                                                    ,
+    (VECTOR_TABLE_Type)&FMAC_IRQHandler
 };
-
 #if defined(__GNUC__)
 #pragma GCC diagnostic pop
 #endif
