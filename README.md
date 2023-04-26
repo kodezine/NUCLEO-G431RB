@@ -1,10 +1,11 @@
-# STM32F072RB-DISCO
- STM32F072 Discovery board with CMake
+# NUCLEO-STM32G431RB
+ Nucleo-STM32G431RB Discovery board with CMake
 
 
 ## Resources
 
-Timer 14: CANopenNode STM32 CAN Timer for 1ms
-Timer 17: HAL Time base
+ * Timer 6: CANopenNode STM32 CAN Timer for 1ms
+ * Timer 7: HAL Time base
 
-SysTick is unused.
+ * SysTick is unused.
+ * PendSV is unused.
