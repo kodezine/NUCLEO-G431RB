@@ -38,11 +38,11 @@ __ROM_SIZE = 0x00020000;
 /*--------------------- Embedded RAM Configuration ----------------------------
   <h> RAM Configuration
     <o0> RAM Base Address    <0x20000000>
-    <o1> RAM Size (in Bytes) <      16 * 1024>
+    <o1> RAM Size (in Bytes) <      32 * 1024>
   </h>
  -----------------------------------------------------------------------------*/
 __RAM_BASE = 0x20000000;
-__RAM_SIZE = 0x00004000;
+__RAM_SIZE = 0x00008000;
 
 /*--------------------- Stack / Heap Configuration ----------------------------
   <h> Stack / Heap Configuration

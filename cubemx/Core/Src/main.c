@@ -92,7 +92,7 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-
+  app_main();
   /* USER CODE END 2 */
 
   /* Infinite loop */
